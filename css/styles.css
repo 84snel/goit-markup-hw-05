@@ -5,6 +5,7 @@
   --description-text-color: rgb(117, 117, 117); /*#757575*/
   --accent-text-color: rgb(33, 150, 243); /*#2196F3*/
   --t-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --base-icon-color: rgb(175, 177, 184); /*базовый цвет иконок*/
 }
 
 *,
@@ -294,17 +295,22 @@ img {
   width: calc((100% - 3 * 30px) / 4);
 }
 
-.benefits-list-item-icon {
+.benefits-list-item-icon-bcg {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 120px;
   background-color: #f5f4fa;
   border-radius: 4px;
-  transition: fill 250ms var(--t-timing-function);
 }
 
-.benefits-list-item-icon:hover {
+.benefits-list-item-icon {
+  --color2: var(--basic-text-color);
+  --color3: var(--accent-text-color);
+  transition: 2500ms;
+}
+
+.benefits-list-item-icon-bcg:hover .benefits-list-item-icon {
   --color3: rgb(255, 255, 255);
 }
 
@@ -440,13 +446,22 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
-  transition: background-color 250ms var(--t-timing-function), fill 250ms var(--t-timing-function);
+  transition: background-color 250ms var(--t-timing-function);
 }
 
 .team-list-item-slink:hover,
 .team-list-item-slink:focus {
   background-color: var(--accent-text-color);
-  --color4: rgb(255, 255, 255); /*сразу передаю fill на svg и не прописываю отдельно класс на svg hover & focus*/
+}
+
+.team-list-item-slink-icon {
+  fill: var(--base-icon-color);
+  transition: fill 250ms var(--t-timing-function);
+}
+
+.team-list-item-slink:hover .team-list-item-slink-icon,
+.team-list-item-slink:focus .team-list-item-slink-icon {
+  fill: rgb(255, 255, 255);
 }
 
 .clients-list {
@@ -464,13 +479,22 @@ img {
   height: 90px;
   border: 1px solid rgb(175, 177, 184);
   border-radius: 4px;
-  transition: border 250ms var(--t-timing-function), fill 250ms var(--t-timing-function);
+  transition: border 250ms var(--t-timing-function);
 }
 
 .clients-list-item-link:hover,
 .clients-list-item-link:focus {
   border: 1px solid var(--accent-text-color);
-  --color4: var(--accent-text-color);
+}
+
+.clients-list-item-link-icon {
+  fill: var(--base-icon-color);
+  transition: fill 250ms var(--t-timing-function);
+}
+
+.clients-list-item-link:hover .clients-list-item-link-icon,
+.clients-list-item-link:focus .clients-list-item-link-icon {
+  fill: var(--accent-text-color);
 }
 
 .footer {
@@ -542,8 +566,8 @@ img {
   background-color: var(--accent-text-color);
 }
 
-.invite-social-list-link > svg {
-  --color4: rgb(255, 255, 255);
+.invite-social-list-item-icon {
+  fill: rgb(255, 255, 255);
 }
 
 .footer .joinnews {
